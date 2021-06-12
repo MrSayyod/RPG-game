@@ -1,0 +1,24 @@
+{
+  "name": "RPG-game",
+  "version": "1.0.0",
+  "description": "PG game - Javascript capstone project by Microverse (created by Sayyod Saidov) [solo project]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrSayyod/RPG-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrSayyod/RPG-game/issues"
+  },
+  "homepage": "https://github.com/MrSayyod/RPG-game#readme",
+  "devDependencies": {
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2"
+  }
+}

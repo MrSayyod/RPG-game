@@ -5,6 +5,9 @@ module.exports = {
   mode: 'production',
   entry: './src/index.js',
   devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Output Management',

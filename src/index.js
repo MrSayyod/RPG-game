@@ -27,6 +27,8 @@ let player
 let stars
 let platforms
 let cursors
+let score = 0
+let scoreTable
 let game = new Phaser.Game(config);
 
 
@@ -87,6 +89,9 @@ function create() {
 
   });
 
+  scoreTable = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+
+
   this.physics.add.collider(player, platforms);
   this.physics.add.collider(stars, platforms);
 
@@ -120,4 +125,6 @@ function update() {
 function collectStar (player, star)
     {
         star.disableBody(true, true);
+        score += 10;
+        scoreTable.setText('Score: ' + score);
     }

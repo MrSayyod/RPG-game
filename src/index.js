@@ -25,7 +25,9 @@ let config = {
 
 let player
 let platforms
+let cursors
 let game = new Phaser.Game(config);
+
 
 function preload() {
   this.load.image('sky', sky);
@@ -70,9 +72,32 @@ function create() {
     repeat: -1
   });
 
+  cursors = this.input.keyboard.createCursorKeys();
+
+
   this.physics.add.collider(player, platforms);
-  
+
 }
 
 function update() {
+  if (cursors.left.isDown) {
+    player.setVelocityX(-160);
+
+    player.anims.play('left', true);
+  }
+  else if (cursors.right.isDown) {
+    player.setVelocityX(160);
+
+    player.anims.play('right', true);
+  }
+  else {
+    player.setVelocityX(0);
+
+    player.anims.play('turn');
+  }
+
+  if (cursors.up.isDown && player.body.touching.down) {
+    player.setVelocityY(-330);
+  }
+
 }

@@ -1,13 +1,13 @@
 import Phaser from 'phaser';
-import blue_button_02 from '../assets/ui/blue_button02.png';
-import blue_button_03 from '../assets/ui/blue_button03.png';
+import blueButton02 from '../assets/ui/blue_button02.png';
+import blueButton03 from '../assets/ui/blue_button03.png';
 import bomb from '../assets/bomb.png';
 import phaserLogo from '../assets/logo.png';
 import sky from '../assets/sky.png';
 import ground from '../assets/platform.png';
 import starObject from '../assets/star.png';
-import grey_box from '../assets/ui/grey_box.png';
-import checked_box from '../assets/ui/blue_boxCheckmark.png';
+import greyBox from '../assets/ui/grey_box.png';
+import checkedBox from '../assets/ui/blue_boxCheckmark.png';
 import playerObject from '../assets/dude.png';
 import bgMusic from '../assets/TownTheme.mp3';
 
@@ -85,15 +85,15 @@ export default class PreloaderScene extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
-    this.load.image('blueButton1', blue_button_02);
-    this.load.image('blueButton2', blue_button_03);
+    this.load.image('blueButton1', blueButton02);
+    this.load.image('blueButton2', blueButton03);
     this.load.image('phaserLogo', phaserLogo);
     this.load.image('sky', sky);
     this.load.image('ground', ground);
     this.load.image('starObject', starObject);
     this.load.image('bomb', bomb);
-    this.load.image('box', grey_box);
-    this.load.image('checkedBox', checked_box);
+    this.load.image('box', greyBox);
+    this.load.image('checkedBox', checkedBox);
     this.load.audio('bgMusic', [bgMusic]);
     this.load.spritesheet('dude', playerObject, { frameWidth: 32, frameHeight: 48 });
   }

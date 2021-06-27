@@ -6,10 +6,6 @@ export default class LeaderboardScene extends Phaser.Scene {
     super('Leaderboard');
   }
 
-  preload() {
-
-  }
-
   create() {
     this.add.image(400, 300, 'sky');
     this.add.text(300, 200, 'Game Over', { fontSize: '32px', fill: '#000' });

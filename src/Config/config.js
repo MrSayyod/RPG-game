@@ -1,10 +1,10 @@
 import 'phaser';
- 
+
 export default {
   type: Phaser.AUTO,
   parent: 'container',
   dom: {
-    createContainer: true
+    createContainer: true,
   },
   width: 800,
   height: 600,
@@ -12,7 +12,7 @@ export default {
     default: 'arcade',
     arcade: {
       gravity: { y: 300 },
-      debug: false
-    }
-  }
+      debug: false,
+    },
+  },
 };

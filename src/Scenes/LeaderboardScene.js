@@ -1,4 +1,4 @@
-import 'phaser'
+import 'phaser';
 import APIHandler from '../APIHandler';
 
 export default class LeaderboardScene extends Phaser.Scene {
@@ -12,9 +12,9 @@ export default class LeaderboardScene extends Phaser.Scene {
 
   create() {
     this.add.image(400, 300, 'sky');
-    this.add.text(300, 200, 'Game Over', { fontSize: '32px', fill: '#000' })
+    this.add.text(300, 200, 'Game Over', { fontSize: '32px', fill: '#000' });
 
-    const myID = "peQd10aVIzyQmZoVWY3p"
+    const myID = 'peQd10aVIzyQmZoVWY3p';
     const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myID}/scores/`;
     const score = JSON.parse(localStorage.getItem('score:'));
     const username = JSON.parse(localStorage.getItem('username:'));

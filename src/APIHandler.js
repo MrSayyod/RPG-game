@@ -1,5 +1,5 @@
-import 'phaser'
-import 'regenerator-runtime/runtime'
+import 'phaser';
+import 'regenerator-runtime/runtime';
 
 const APIHandler = (() => {
   const postData = async (url, dataObj) => {

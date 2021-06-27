@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 let player;
 let stars;

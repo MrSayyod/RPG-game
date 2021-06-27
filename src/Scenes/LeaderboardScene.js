@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import APIHandler from '../APIHandler';
 
 export default class LeaderboardScene extends Phaser.Scene {

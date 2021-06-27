@@ -1,4 +1,3 @@
-import 'phaser';
 import 'regenerator-runtime/runtime';
 
 const APIHandler = (() => {

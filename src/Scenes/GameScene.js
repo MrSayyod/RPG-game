@@ -9,6 +9,30 @@ let scoreTable;
 let score = 0;
 let gameOver = false;
 
+function collectStar(player, star) {
+  star.disableBody(true, true);
+  score += 10;
+  scoreTable.setText(`Score: ${score}`);
+  if (stars.countActive(true) === 0) {
+    stars.children.iterate((child) => {
+      child.enableBody(true, child.x, 0, true, true);
+    });
+    const x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+    const bomb = bombs.create(x, 16, 'bomb');
+    bomb.setBounce(1);
+    bomb.setCollideWorldBounds(true);
+    bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+    bomb.allowGravity = false;
+  }
+}
+
+function hitBomb(player, bomb) { // eslint-disable-line no-unused-vars
+  this.physics.pause();
+  player.setTint(0xff0000);
+  player.anims.play('turn');
+  gameOver = true;
+}
+
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
@@ -103,28 +127,4 @@ export default class GameScene extends Phaser.Scene {
       player.setVelocityY(-330);
     }
   }
-}
-
-function collectStar(player, star) {
-  star.disableBody(true, true);
-  score += 10;
-  scoreTable.setText(`Score: ${score}`);
-  if (stars.countActive(true) === 0) {
-    stars.children.iterate((child) => {
-      child.enableBody(true, child.x, 0, true, true);
-    });
-    const x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-    const bomb = bombs.create(x, 16, 'bomb');
-    bomb.setBounce(1);
-    bomb.setCollideWorldBounds(true);
-    bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-    bomb.allowGravity = false;
-  }
-}
-
-function hitBomb(player, bomb) {
-  this.physics.pause();
-  player.setTint(0xff0000);
-  player.anims.play('turn');
-  gameOver = true;
 }

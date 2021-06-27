@@ -23,18 +23,16 @@ export default class PreloaderScene extends Phaser.Scene {
   preload() {
 
     
-    // add logo image
     this.add.image(400, 200, 'logo');
 
-    // display progress bar
-    var progressBar = this.add.graphics();
-    var progressBox = this.add.graphics();
+    let progressBar = this.add.graphics();
+    let progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
     progressBox.fillRect(240, 270, 320, 50);
 
-    var width = this.cameras.main.width;
-    var height = this.cameras.main.height;
-    var loadingText = this.make.text({
+    let width = this.cameras.main.width;
+    let height = this.cameras.main.height;
+    let loadingText = this.make.text({
       x: width / 2,
       y: height / 2 - 50,
       text: 'Loading...',
@@ -45,7 +43,7 @@ export default class PreloaderScene extends Phaser.Scene {
     });
     loadingText.setOrigin(0.5, 0.5);
 
-    var percentText = this.make.text({
+    let percentText = this.make.text({
       x: width / 2,
       y: height / 2 - 5,
       text: '0%',
@@ -56,7 +54,7 @@ export default class PreloaderScene extends Phaser.Scene {
     });
     percentText.setOrigin(0.5, 0.5);
 
-    var assetText = this.make.text({
+    let assetText = this.make.text({
       x: width / 2,
       y: height / 2 + 50,
       text: '',
@@ -67,7 +65,6 @@ export default class PreloaderScene extends Phaser.Scene {
     });
     assetText.setOrigin(0.5, 0.5);
 
-    // update progress bar
     this.load.on('progress', function (value) {
       percentText.setText(parseInt(value * 100) + '%');
       progressBar.clear();
@@ -75,12 +72,10 @@ export default class PreloaderScene extends Phaser.Scene {
       progressBar.fillRect(250, 280, 300 * value, 30);
     });
 
-    // update file progress text
     this.load.on('fileprogress', function (file) {
       assetText.setText('Loading asset: ' + file.key);
     });
 
-    // remove progress bar when complete
 this.load.on('complete', function () {
   progressBar.destroy();
   progressBox.destroy();
@@ -92,12 +87,8 @@ this.load.on('complete', function () {
  
 this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
  
-// load assets needed in our game
 this.load.image('blueButton1', blue_button_02);
 this.load.image('blueButton2', blue_button_03);
-// this.load.image('phaserLogo', 'assets/logo.png');
-
-// part2
 this.load.image('phaserLogo', phaserLogo);
 this.load.image('sky', sky);
 this.load.image('ground', ground);
@@ -112,8 +103,6 @@ this.load.spritesheet('dude', playerObject, { frameWidth: 32, frameHeight: 48 })
 
   ready () {
     this.scene.start('Title');
-    // this.scene.start('Credits');
-    // this.scene.start('Options');
     this.readyCount++;
     if (this.readyCount === 2) {
       this.scene.start('Title');

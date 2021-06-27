@@ -1,7 +1,4 @@
 import 'phaser';
-// import collectStar from '../collectStar';
-// import hitBomb from '../hitBomb';
-
 
 let player
 let stars
@@ -17,10 +14,7 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
-
-
   preload() {
-    // load images
     this.load.image('logoImage', 'assets/logo.png');
   }
 
@@ -94,9 +88,6 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     if (gameOver) {
-      // return;
-      // this.scene.start('update')
-      
       this.scene.start('Leaderboard')
     }
 
@@ -119,47 +110,30 @@ export default class GameScene extends Phaser.Scene {
     if (cursors.up.isDown && player.body.touching.down) {
       player.setVelocityY(-330);
     }
-
   }
-
-   
-  
-  
-
-
 };
 
 function collectStar(player, star) {
   star.disableBody(true, true);
   score += 10;
   scoreTable.setText('Score: ' + score);
-
   if (stars.countActive(true) === 0) {
     stars.children.iterate(function (child) {
-
-        child.enableBody(true, child.x, 0, true, true);
-
+      child.enableBody(true, child.x, 0, true, true);
     });
-
-    var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
-    var bomb = bombs.create(x, 16, 'bomb');
+    let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+    let bomb = bombs.create(x, 16, 'bomb');
     bomb.setBounce(1);
     bomb.setCollideWorldBounds(true);
     bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
     bomb.allowGravity = false;
-
-}
-
+  }
 }
 
 function hitBomb(player, bomb) {
   this.physics.pause();
-
   player.setTint(0xff0000);
-
   player.anims.play('turn');
-
   gameOver = true;
 }
 

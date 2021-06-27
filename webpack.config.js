@@ -8,6 +8,9 @@ module.exports = {
   performance: {
     hints: false,
   },
+  settings: {
+    'import/resolver': 'webpack',
+  },
   devServer: {
     contentBase: './dist',
   },

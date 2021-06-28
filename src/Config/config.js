@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import Phaser from 'phaser'; 
+import Phaser from 'phaser';
 
 export default {
   type: Phaser.AUTO,

@@ -22,7 +22,7 @@ export default class LeaderboardScene extends Phaser.Scene {
 
 
     APIHandler.getData(url)
-      .then(data => {
+      .then((data) => {
         this.space = 0;
 
         data.result.sort((a, b) => b.score - a.score).slice(0, 10).forEach((userObj, index) => {

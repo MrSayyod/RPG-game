@@ -116,9 +116,9 @@ export default class GameScene extends Phaser.Scene {
       };
       APIHandler.postData(obj);
       this.scene.start('Leaderboard');
-      gameOver = false
-      score = 0
-      APIHandler.getData()
+      gameOver = false;
+      score = 0;
+      APIHandler.getData();
     }
 
     if (cursors.left.isDown) {

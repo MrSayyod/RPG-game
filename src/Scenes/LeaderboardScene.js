@@ -11,8 +11,6 @@ export default class LeaderboardScene extends Phaser.Scene {
     this.add.image(400, 300, 'sky');
     this.add.text(300, 200, 'Game Over', { fontSize: '32px', fill: '#000' });
 
-    // const myID = 'peQd10aVIzyQmZoVWY3p';
-    // const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myID}/scores/`;
     const score = JSON.parse(localStorage.getItem('score:'));
     const username = JSON.parse(localStorage.getItem('username:'));
     const obj = { // eslint-disable-line
@@ -20,14 +18,9 @@ export default class LeaderboardScene extends Phaser.Scene {
       score,
     };
 
-    // APIHandler.postData(url,obj)
-    console.log(obj);
-
-
     APIHandler.getData()
       .then((data) => {
         this.space = 0;
-        console.log(data.result);
         data.result.sort((a, b) => b.score - a.score).slice(0, 5).forEach((userObj, index) => {
           this.add.text(
             250,
@@ -49,14 +42,11 @@ export default class LeaderboardScene extends Phaser.Scene {
     this.btn = document.querySelector('button');
     this.btn.addEventListener('click', () => {
       this.scene.start('Title');
-
     });
 
     this.refresh = document.querySelector('a');
-    this.refresh.addEventListener('click', (e) => {
+    this.refresh.addEventListener('click', () => {
       APIHandler.getData();
-      console.log(e);
-
     });
   }
 }

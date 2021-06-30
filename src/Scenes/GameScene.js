@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import Phaser from 'phaser';
+import APIHandler from '../APIHandler';
 
 let player;
 let stars;
@@ -107,7 +108,17 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     if (gameOver) {
+      localStorage.setItem('score:', JSON.stringify(score));
+      const username = JSON.parse(localStorage.getItem('username:'));
+      const obj = { // eslint-disable-line
+        user: username,
+        score,
+      };
+      APIHandler.postData(obj);
       this.scene.start('Leaderboard');
+      gameOver = false
+      score = 0
+      APIHandler.getData()
     }
 
     if (cursors.left.isDown) {

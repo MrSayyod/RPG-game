@@ -2,7 +2,10 @@
 import 'regenerator-runtime/runtime';
 
 const APIHandler = (() => {
-  const postData = async (url, dataObj) => {
+  const myID = 'peQd10aVIzyQmZoVWY3p';
+  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${myID}/scores/`;
+
+  const postData = async (dataObj) => {
     try {
       const response = await fetch(url, {
         mode: 'cors',
@@ -18,7 +21,7 @@ const APIHandler = (() => {
     }
   };
 
-  const getData = async (url) => {
+  const getData = async () => {
     try {
       const response = await fetch(url);
       return response.json();

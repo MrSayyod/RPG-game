@@ -1,4 +1,4 @@
-import APIHandler from "../src/APIHandler";
+import APIHandler from '../src/APIHandler';
 
 describe('postData', () => {
   test('it does not return null', () => expect(APIHandler.postData()).not.toBeNull());

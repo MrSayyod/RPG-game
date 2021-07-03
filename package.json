@@ -10,7 +10,6 @@
     "start": "webpack serve --open",
     "jest-watch": "jest --watch",
     "jest-init": "jest --init"
-    
   },
   "jest": {
     "transform": {
@@ -37,7 +36,9 @@
   },
   "homepage": "https://github.com/MrSayyod/RPG-game#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
     "babel-eslint": "10.1.x",
+    "babel-jest": "^27.0.6",
     "css-loader": "^5.2.6",
     "eslint": "6.8.x",
     "eslint-config-airbnb-base": "14.1.x",
